@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Node.js App</title>
+</head>
+
+<body>
+    <h1>Welcome to the Basic Node.js App</h1>
+    <button id="fetchDataButton">Fetch Data from API</button>
+    <div id="apiResponse"></div>
+
+    <script>
+        document.getElementById('fetchDataButton').addEventListener('click', async function () {
+            const response = await fetch('/api/data');
+            const data = await response.json();
+            document.getElementById('apiResponse').innerHTML = `
+        <p><strong>Title:</strong> ${data.title}</p>
+        <p><strong>Body:</strong> ${data.body}</p>
+      `;
+        });
+    </script>
+</body>
+
+</html>
